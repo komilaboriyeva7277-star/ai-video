@@ -1,5 +1,6 @@
-flask
-openai
-moviepy
-requests
-gunicorn
+flask==3.0.3
+openai==1.14.0
+moviepy==1.0.3
+requests==2.31.0
+gunicorn==21.2.0
+imageio-ffmpeg==0.4.9

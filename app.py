@@ -4,7 +4,7 @@ import uuid
 import requests
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
-from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
+from moviepy import ImageClip, AudioFileClip, concatenate_videoclips
 
 app = Flask(__name__)
 
@@ -67,8 +67,8 @@ def process_ai_video(topic, api_key, voice, ratio, file_format):
         tts_res.stream_to_file(audio_file)
         
         audio_clip = AudioFileClip(audio_file)
-        image_clip = ImageClip(img_file).set_duration(audio_clip.duration)
-        video_clip = image_clip.set_audio(audio_clip)
+        image_clip = ImageClip(img_file).with_duration(audio_clip.duration)
+        video_clip = image_clip.with_audio(audio_clip)
         
         clips.append(video_clip)
         

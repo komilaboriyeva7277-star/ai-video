@@ -1,5 +1,5 @@
 streamlit
 openai
-moviepy
+moviepy==1.0.3
 requests
-imageio-ffmpeg
+imageio-ffmpeg==0.4.9

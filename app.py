@@ -4,7 +4,7 @@ import uuid
 import requests
 import streamlit as st
 from openai import OpenAI
-from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
+from moviepy import ImageClip, AudioFileClip, concatenate_videoclips
 
 st.set_page_config(page_title="AI Video Studio Pro", page_icon="🎬", layout="centered")
 
@@ -81,8 +81,8 @@ if st.button("🚀 Video Yaratish", use_container_width=True):
                     tts_res.stream_to_file(audio_file)
                     
                     audio_clip = AudioFileClip(audio_file)
-                    image_clip = ImageClip(img_file).set_duration(audio_clip.duration)
-                    video_clip = image_clip.set_audio(audio_clip)
+                    image_clip = ImageClip(img_file).with_duration(audio_clip.duration)
+                    video_clip = image_clip.with_audio(audio_clip)
                     
                     clips.append(video_clip)
                     
